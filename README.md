@@ -22,7 +22,7 @@ After each episode, we add up the rewards that each agent received (without disc
 This yields a single score for each episode.
 The environment is considered solved, when the average (over 100 episodes) of those scores is at least +0.5.
 
-In my implementation, I have chosen to solve the second version of the environment using the MADDPG algorithm. 
+In my implementation, I have chosen to solve the environment using the MADDPG algorithm. 
 
 # Getting Started
 ### Installation Requirements
