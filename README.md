@@ -1,4 +1,4 @@
-# TennisAgent
+# Tennis Agent
 
 # Project's Goal
 
