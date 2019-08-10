@@ -25,15 +25,15 @@ In my implementation, I have chosen to solve the environment using the MADDPG al
 
 # Algorithm
 
-The algorithm used in solving the environment is the Deep Deterministic Policy Gradient (DDPG). DDPG is an algorithm which learns a Q-function and a policy.
+The algorithm used in solving the environment is the Multi Agent Deep Deterministic Policy Gradient (MADDPG). DDPG is an algorithm which learns a Q-function and a policy.
 
-![alt text](https://github.com/saj122/ReacherAgent/blob/master/images/ddpg.png)
+![alt text](https://github.com/saj122/ReacherAgent/blob/master/images/maddpg.png)
 
-The algorithm image was taken from a Towards Data Science [article](https://towardsdatascience.com/introduction-to-various-reinforcement-learning-algorithms-i-q-learning-sarsa-dqn-ddpg-72a5e0cb6287).
+The algorithm image was taken from a Medium [article](https://medium.com/@amitpatel.gt/maddpg-91caa221d75e).
 
 # Code Implementation
 
-The code used here is derived from the DDPG bipedal tutorial from the Deep Reinforcement Learning Nanodegree.
+The code used here is derived from the MADDPG pong workspace from the Deep Reinforcement Learning Nanodegree.
 
 The code is written in Python 3.6 and is relying on PyTorch 0.4.0 framework.
 
@@ -43,27 +43,23 @@ The Actor and Critic classes each implement a Target and a Local Neural Networks
 
 Instead of an Agent class, I created two actors. One for each agent. Both actors shared the same replay buffer and critic network. Both actors act on the state and contribute to the same replay buffer. They sample from that buffer when learning.
 
-Gradient clipping of the critics parameters hindered the progress of learning. The agents learned faster without it.
-
 The algorithm and environment was very sensitive to noise. A low sigma and seed helped in learning.
    
 # DDPG Hyperparameters
 
-BUFFER_SIZE = int(1e6)  # replay buffer size
+BUFFER_SIZE = int(500000)  # replay buffer size
 
-BATCH_SIZE = 128        # minibatch size
+BATCH_SIZE = 128           # minibatch size
 
-GAMMA = 0.99            # discount factor
+GAMMA = 0.95               # discount factor
 
-TAU = 2e-1              # for soft update of target parameters
+TAU = 0.02                 # for soft update of target parameters
 
-LR_ACTOR = 1e-4         # learning rate of the actor 
+LR_ACTOR = 1e-4            # learning rate of the actor 
 
-LR_CRITIC = 3e-4        # learning rate of the critic
+LR_CRITIC = 1e-3           # learning rate of the critic
 
-WEIGHT_DECAY = 0        # L2 weight decay
-
-SEED = 2  
+SEED = 10 
 
 #### Actor Neural Network
 Input nodes (24) -> Fully Connected Layer (512 nodes, Relu activation) -> Fully Connected Layer (256 nodes, Relu activation) -> Fully Connected Layer (256 nodes, Relu activation) -> Ouput nodes (2, tanh activation)
@@ -72,9 +68,9 @@ Input nodes (24) -> Fully Connected Layer (512 nodes, Relu activation) -> Fully 
 Input nodes (24) -> Fully Connected Layer (512 nodes, Relu activation) -> Fully Connected Layer (256 + 4 nodes, Relu activation) -> Fully Connected Layer (256 nodes, Relu activation) - > Fully Connected Layer (256 nodes, Relu activation) - >Ouput nodes (1, relu activation)
 
 # Results
-Given the hyperparameters and neural network the agent was able to achieve an average reward of 0.5 in 400 episodes.
+Given the hyperparameters and neural network the agent was able to achieve an average reward of 0.5 in 2995 episodes.
 
-![alt text](https://github.com/saj122/TennisAgent/blob/master/images/scores.png)
+![alt text](https://github.com/saj122/TennisAgent/blob/master/images/progress.png)
 
 # Future Work
 
@@ -82,4 +78,4 @@ Using other algorithms, such as, PPO along with the actor and critic paradigm.
 
 Researching new advancements as multi agent deep reinforcment learning is fairly new and exploding field.
 
-Checking out deepminds new OpenAI Five and the recently research Starcraft 2 AI.
+Checking out deepminds new OpenAI Five and the recently the Starcraft 2 AI.
