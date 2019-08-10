@@ -44,6 +44,8 @@ The Actor and Critic classes each implement a Target and a Local Neural Networks
 Instead of an Agent class, I created two actors. One for each agent. Both actors shared the same replay buffer and critic network. Both actors act on the state and contribute to the same replay buffer. They sample from that buffer when learning.
 
 The algorithm and environment was very sensitive to noise. A low sigma and seed helped in learning.
+
+Updating the agents networks after a set interval, as was done to solve the reacher environment, helped in steady learning.
    
 # DDPG Hyperparameters
 
