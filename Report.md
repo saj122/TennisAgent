@@ -33,7 +33,7 @@ The algorithm image was taken from a Medium [article](https://medium.com/@amitpa
 
 # Code Implementation
 
-The code used here is derived from the MADDPG pong workspace from the Deep Reinforcement Learning Nanodegree.
+The code used here is derived from the MADDPG physical deception workspace from the Deep Reinforcement Learning Nanodegree.
 
 The code is written in Python 3.6 and is relying on PyTorch 0.4.0 framework.
 
