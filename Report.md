@@ -27,7 +27,7 @@ In my implementation, I have chosen to solve the environment using the MADDPG al
 
 The algorithm used in solving the environment is the Multi Agent Deep Deterministic Policy Gradient (MADDPG). DDPG is an algorithm which learns a Q-function and a policy.
 
-![alt text](https://github.com/saj122/ReacherAgent/blob/master/images/maddpg.png)
+![alt text](https://github.com/saj122/TennisAgent/blob/master/images/maddpg.png)
 
 The algorithm image was taken from a Medium [article](https://medium.com/@amitpatel.gt/maddpg-91caa221d75e).
 
@@ -62,10 +62,10 @@ LR_CRITIC = 1e-3           # learning rate of the critic
 SEED = 10 
 
 #### Actor Neural Network
-Input nodes (24) -> Fully Connected Layer (512 nodes, Relu activation) -> Fully Connected Layer (256 nodes, Relu activation) -> Fully Connected Layer (256 nodes, Relu activation) -> Ouput nodes (2, tanh activation)
+Input nodes (24) -> Fully Connected Layer (256 nodes, Relu activation) -> Fully Connected Layer (128 nodes, Relu activation) -> Fully Connected Layer (128 nodes, Relu activation) -> Ouput nodes (2, tanh activation)
 
 #### Critic Neural Network
-Input nodes (24) -> Fully Connected Layer (512 nodes, Relu activation) -> Fully Connected Layer (256 + 4 nodes, Relu activation) -> Fully Connected Layer (256 nodes, Relu activation) - > Fully Connected Layer (256 nodes, Relu activation) - >Ouput nodes (1, relu activation)
+Input nodes (52) -> Fully Connected Layer (256 nodes, Relu activation) -> Fully Connected Layer (128 nodes, Relu activation) -> Fully Connected Layer (128 nodes, Relu activation) -> Ouput nodes (1)
 
 # Results
 Given the hyperparameters and neural network the agent was able to achieve an average reward of 0.5 in 2995 episodes.
